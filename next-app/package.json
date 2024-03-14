@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate && prisma migrate prod"
+    "postinstall": "prisma generate && prisma migrate dev --name init"
   },
   "dependencies": {
     "@babel/plugin-proposal-decorators": "^7.24.0",
