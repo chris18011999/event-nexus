@@ -1,0 +1,325 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: 76, 175, 80;
+  --primary-dark: 60, 160, 60;
+  --secondary: 33, 150, 243;
+  --secondary-dark: 15, 125, 215;
+  --neutral-1: 255, 255, 255;
+  --neutral-1-dark: 245, 245, 245;
+  --neutral-2: 33, 33, 33;
+  --neutral-3: 230, 230, 230;
+  --accent: 255, 193, 7;
+}
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 32px;
+}
+h2 {
+  font-size: 28px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 20px;
+}
+h5 {
+  font-size: 18px;
+}
+h6 {
+  font-size: 16px;
+}
+
+small {
+  font-size: 14px;
+}
+
+a {
+  font-size: 16px;
+}
+
+.button,
+button {
+  --background-color: var(--neutral-1);
+  --color: var(--neutral-2);
+  --border-color: var(--neutral-2);
+
+  font-size: 16px;
+  display: inline-block;
+  padding: 12px 24px;
+  letter-spacing: .03em;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  background-color: rgb(var(--background-color));
+  color: rgb(var(--color));
+  border: 1px solid rgb(var(--border-color));
+}
+
+
+.button:hover,
+.button:focus,
+button:hover,
+button:focus {
+  --background-color: var(--neutral-1-dark);
+  --border-color: var(--neutral-2);
+}
+
+.button.primary,
+button.primary {
+  --background-color: var(--primary);
+  --color: var(--neutral-1);
+  --border-color: var(--background-color);
+}
+
+.button.primary:hover,
+.button.primary:focus,
+button.primary:hover,
+button.primary:focus {
+  --background-color: var(--primary-dark);
+  --color: var(--neutral-1);
+}
+
+.button.secondary,
+button.secondary {
+  --background-color: var(--secondary);
+  --color: var(--neutral-1);
+  --border-color: var(--background-color);
+}
+
+.button.secondary:hover,
+.button.secondary:focus,
+button.secondary:hover,
+button.secondary:focus {
+  --background-color: var(--secondary-dark);
+  --color: var(--neutral-1);
+}
+
+.button.small,
+button.small {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+h1, h2, a {
+  color: rgb(var(--primary));
+}
+
+.styleguide {
+  display: grid;
+  padding: 30px 50px;
+  gap: 30px;
+}
+
+.styleguide-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 30px;
+  background: rgb(var(--neutral-1-dark));
+  border-radius: 16px;
+}
+
+.skeleton {
+  background-color: rgb(var(--neutral-3));
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton::after {
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(var(--neutral-1), 0) 0,
+    rgba(var(--neutral-1), 0.2) 20%,
+    rgba(var(--neutral-1), 0.5) 60%,
+    rgba(var(--neutral-1), 0)
+  );
+  animation: shimmer 5s infinite;
+  content: '';
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+body {
+  background: rgb(var(--neutral-1));
+  color: rgb(var(--neutral-2));
+  font-size: 16px;
+}
+
+
+input[type=text] {
+  padding: 10px;
+  border-color: black;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  outline: none;
+  font: inherit;
+  transition: .2s ease;
+}
+
+textarea {
+  padding: 10px;
+  border-color: black;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  outline: none;
+  font: inherit;
+  transition: .2s ease;
+}
+
+input[type=text]:focus,
+textarea:focus {
+  border-color: rgb(var(--secondary))
+}
+
+input[type=radio] {
+  visibility: hidden;
+  position: relative;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  height: 16px;
+  width: 16px;
+  vertical-align: middle;
+}
+
+input[type=radio]::before {
+  display: block;
+  visibility: visible;
+  content: "";
+  width: 16px;
+  height: 16px;
+  background: white;
+  border: 1px solid rgb(var(--secondary));
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+}
+
+input[type=radio]::after {
+  pointer-events: none;
+  position: absolute;
+  inset: 3px auto 3px 3px;
+  visibility: visible;
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: rgb(var(--secondary));
+  border-radius: 50%;
+  opacity: 0;
+  scale: .9;
+  transition: .2s ease;
+}
+
+input[type=radio]:checked::after {
+  scale: 1;
+  opacity: 1;
+}
+
+input[type=radio] + label {
+  display: inline-block;
+  margin-left: 10px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+
+input[type=checkbox] {
+  visibility: hidden;
+  position: relative;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  height: 16px;
+  width: 16px;
+  vertical-align: middle;
+}
+
+input[type=checkbox]::before {
+  display: block;
+  visibility: visible;
+  content: "";
+  width: 16px;
+  height: 16px;
+  background: white;
+  border: 1px solid rgb(var(--secondary));
+  border-radius: 4px;
+  position: absolute;
+  cursor: pointer;
+}
+
+input[type=checkbox]::after {
+  pointer-events: none;
+  position: absolute;
+  inset: 3px auto 3px 3px;
+  visibility: visible;
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: rgb(var(--secondary));
+  border-radius: 2px;
+  opacity: 0;
+  scale: .9;
+  transition: .2s ease;
+}
+
+input[type=checkbox]:checked::after {
+  scale: 1;
+  opacity: 1;
+}
+
+input[type=checkbox] + label {
+  display: inline-block;
+  margin-left: 10px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+select {
+  padding: 10px;
+  border-color: black;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  outline: none;
+  font: inherit;
+  transition: .2s ease;
+}

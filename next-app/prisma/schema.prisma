@@ -1,0 +1,29 @@
+generator client {
+  provider        = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Tag {
+  id      Int    @id @default(autoincrement())
+  Event   Event? @relation(fields: [eventId], references: [id])
+  eventId Int?
+  name    String
+}
+
+model Event {
+  id                    Int    @id @default(autoincrement())
+  title                 String
+  category              String
+  date                  DateTime
+  location              String
+  description           String
+  price                 Int
+  capacity              Int
+  available_space       Int
+  registration_deadline DateTime
+  tags                  Tag[]
+}
