@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function EventCard({ event }: { event: EventData }) {
   return (
     <div className={style.card}>
-      <Link href={`/events/${slugify(event.title)}-${event.id}`}>
+      <Link href={`/events/${slugify(event.title)}/${event.id}`}>
         <h3>{event.title}</h3>
       </Link>
       {event.description && <div>{event.description}</div>}
