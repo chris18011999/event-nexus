@@ -6,7 +6,6 @@ WORKDIR /
 
 COPY . ./app
 COPY ./prisma /app/prisma
-COPY ./dev.db /app/dev.db
 WORKDIR /app
 
 RUN rm -rf /app/node_modules

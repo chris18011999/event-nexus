@@ -19,7 +19,6 @@ WORKDIR /app
 # This is done before copying the rest of the files to take advantage of Docker’s cache
 # If the package.json and package-lock.json files haven’t changed, Docker will use the cached dependencies
 COPY ./prisma prisma
-COPY ./dev.db /app/dev.db
 
 # sometimes the ownership of the files in the working directory is changed to root
 # and thus the app can't access the files and throws an error -> EACCES: permission denied
