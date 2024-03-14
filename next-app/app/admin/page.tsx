@@ -26,7 +26,6 @@ export default function AdminHome() {
                     category: generateString(20),
                     date: new Date(),
                     available_space: 1000,
-                    location: "Den Haag",
                     title: generateString(30),
                     price: 0,
                     description: generateString(300),
