@@ -1,10 +1,10 @@
 generator client {
-  provider        = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
   directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 
@@ -15,16 +15,30 @@ model Tag {
   name    String
 }
 
+model Location {
+  id           Int     @id @default(autoincrement())
+  latitude     Float
+  longitude    Float
+  name         String
+  street       String
+  house_number String
+  zip          String
+  city         String
+  country      String
+  events       Event[]
+}
+
 model Event {
-  id                    Int    @id @default(autoincrement())
+  id                    Int      @id @default(autoincrement())
   title                 String
   category              String
   date                  DateTime
-  location              String
   description           String
   price                 Int
   capacity              Int
   available_space       Int
   registration_deadline DateTime
+  location              Location? @relation(fields: [locationId], references: [id])
   tags                  Tag[]
+  locationId            Int?
 }

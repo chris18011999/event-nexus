@@ -17,6 +17,7 @@ export default function EventCard({ event }: { event: EventData }) {
           )}
         </span>
       )}
+      {event.location && <div>{event.location.name}</div>}
       {event.tags && (
         <div>
           {event.tags.map((tag) => (
