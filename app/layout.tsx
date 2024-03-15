@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { CustomHeader } from "@/components/header/header";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: "EventNexus - Your home for events",
@@ -19,6 +20,7 @@ export default function RootLayout({
           <CustomHeader />
           {children}
           <SpeedInsights/>
+          <Analytics/>
         </body>
       </html>
   );

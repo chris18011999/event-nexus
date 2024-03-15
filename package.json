@@ -12,6 +12,7 @@
   "dependencies": {
     "@babel/plugin-proposal-decorators": "^7.24.0",
     "@nextui-org/react": "^2.2.10",
+    "@vercel/analytics": "^1.2.2",
     "@vercel/speed-insights": "^1.0.10",
     "babel-plugin-transform-typescript-metadata": "^0.3.2",
     "framer-motion": "^11.0.13",
