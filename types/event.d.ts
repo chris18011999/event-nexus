@@ -10,6 +10,12 @@ export interface Location {
   country: string;
 }
 
+export interface EventTag {
+  id: number;
+  name: string;
+  slug: string;
+}
+
 export interface EventData {
   id: number;
   title: string;
@@ -21,5 +27,5 @@ export interface EventData {
   capacity: number;
   available_space: number;
   registration_deadline: Date;
-  tags?: string[];
+  tags?: EventTag[];
 }

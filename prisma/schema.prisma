@@ -13,6 +13,7 @@ model Tag {
   Event   Event? @relation(fields: [eventId], references: [id])
   eventId Int?
   name    String
+  slug    String
 }
 
 model Location {

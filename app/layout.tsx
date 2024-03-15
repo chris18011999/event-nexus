@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { CustomHeader } from "@/components/header/header";
 
 export const metadata: Metadata = {
   title: "EventNexus - Your home for events",
@@ -12,8 +13,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <html lang="en">
-        <body>{children}</body>
+      <html lang="nl">
+        <body>
+          <CustomHeader />
+          {children}
+        </body>
       </html>
   );
 }
