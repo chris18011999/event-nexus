@@ -14,7 +14,7 @@ export default function EventCard({ event }: { event: EventData }) {
           <p className="text-md">{event.title}</p>
           <p className="text-small text-default-500" suppressHydrationWarning>{event.date.toLocaleDateString()}</p>
           {event.tags?.map((tag) => {
-            return <Link href={`/tags/${tag.slug}`}><Chip variant="solid" color="secondary">{tag.name}</Chip></Link>
+            return <Link key={tag.id} href={`/tags/${tag.slug}`}><Chip variant="solid" color="secondary">{tag.name}</Chip></Link>
           })}
         </div>
       </CardHeader>
