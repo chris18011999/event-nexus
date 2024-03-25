@@ -8,6 +8,10 @@ async function handleSubmit() {
 }
 
 export default function Page_AccountLogin() {
+
+  if(cookies().get('loggedIn')) {
+    redirect('/account/dashboard')
+  }
   return (
     <form action={handleSubmit}>
       <button className="primary">Login</button>

@@ -1,0 +1,1 @@
+export { queryAll as queryAllEvents } from './events/query'

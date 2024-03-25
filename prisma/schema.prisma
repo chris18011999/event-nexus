@@ -42,4 +42,5 @@ model Event {
   location              Location? @relation(fields: [locationId], references: [id])
   tags                  Tag[]
   locationId            Int?
+  image                 String?
 }

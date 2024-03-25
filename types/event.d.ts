@@ -21,8 +21,9 @@ export interface EventData {
   title: string;
   category: string;
   date: Date;
-  location?: Location;
+  location?: Location | null;
   description: string;
+  image?: string | null;
   price: number;
   capacity: number;
   available_space: number;
